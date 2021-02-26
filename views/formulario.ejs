@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Formulário de Jogos</title>
+</head>
+
+<body>
+    <header>
+        <%- include('./slices/header-slice.ejs') %>
+    </header>
+    <main>
+        <div class="formulario">
+            <form action ="formulario" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" name ="nome" placeholder="Insire o nome do jogo."><br>
+                </div>  
+                <div class="form-group">
+                    <label for="desenvolvedora">Desenvolvedora</label>
+                    <input type="text" name ="desenvolvedora" placeholder="Insire o desenvolvedor do jogo."><br>
+                </div> 
+                <div class="form-group">
+                    <label for="estudio">Estúdio</label>
+                    <input type="text" name ="estudio" placeholder="Insire o estúdio do jogo."><br>
+                </div>                      
+
+                <div class="form-group">
+                    <textarea id="descricao" name="descricao" rows="5" cols="33">Descrição do jogo...
+                    </textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="titulo_generos">Classificação Indicativa</label><br>
+
+                    <select name="classInd">
+                        <option value="" selected>Selecione ...</option>
+                        <% classInd.map(item => {%>
+                            <option value="<%= item.value %>"><%= item.label%></option>
+
+                        <% }) %>
+                    </select>
+                </div>
+
+               <div class="form-group">
+                    <label for="titulo_generos">Generos do jogo:</label><br>
+                    <input type="checkbox" id="genero1" name="genero1" value="Acao">
+                    <label for="genero1"> Ação</label><br>
+                    <input type="checkbox" id="genero2" name="genero2" value="Estratégia">
+                    <label for="genero2"> Estratégia</label><br>
+                    <input type="checkbox" id="genero3" name="genero3" value="Terror">
+                    <label for="genero3"> Terror</label><br>
+                    <input type="checkbox" id="genero4" name="genero4" value="FPS">
+                    <label for="genero4"> FPS</label><br>        
+                </div>            
+
+                <input class="button" type="submit" value="Gerar PDF">
+            </form>
+        </div>
+    </main>
+    <br />
+    <footer>
+        <%- include('./slices/footer-slice.ejs') %>
+    </footer>   
+    
+</body>
+</html>
