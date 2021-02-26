@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParse.urlencoded())
 
-const port = 3001
+const PORT = process.env.PORT || 3001;
 
 app.get('/', indexController.homeView);
 
