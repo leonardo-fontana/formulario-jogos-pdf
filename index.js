@@ -1,11 +1,9 @@
 const express = require('express')
-const path = require('path')
 const bodyParse = require('body-parser')
 
 const formularioController = require('./controller/formulario_controller')
 const indexController = require('./controller/index_controller')
 const { userValidationRules, validate } = require('./validator.js')
-const { homeView } = require('./controller/index_controller')
 
 const app = express()
 app.set('view engine', 'ejs');
